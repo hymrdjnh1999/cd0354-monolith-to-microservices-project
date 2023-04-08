@@ -21,7 +21,7 @@ spec:
         service: backend-user
     spec:
       containers:
-      - image: voibenho/udagram-api-user:v18
+      - image: voibenho/udagram-api-user:v18 
         name: backend-user
         imagePullPolicy: Always
         resources:
