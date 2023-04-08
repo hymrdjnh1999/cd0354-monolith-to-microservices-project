@@ -1,0 +1,10 @@
+export POSTGRES_USERNAME=voibenho
+export POSTGRES_PASSWORD=adolphin
+export POSTGRES_HOST=database-2.crzsffgzgc0f.us-east-1.rds.amazonaws.com
+export ASW_BUCKET=voibenhobucket-dev1
+export AWS_REGION=us-east-1
+export AWS_PROFILE=default
+export JWT_SECRET=hello
+export URL=http://localhost:8100
+export POSTGRES_DB=postgres
+export PORT=8100

@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - 14
+
+services:
+  - docker
+
+before_script:
+  - echo "Travis Run Project 3"
+
+script:
+  - docker build -t udagram-api-feed ./udagram-api-feed
+  - docker tag udagram-api-feed voibenho/udagram-api-feed:v18
+  - docker build -t udagram-api-user ./udagram-api-user
+  - docker tag udagram-api-user voibenho/udagram-api-user:v18
+  - docker build -t reverseproxy ./udagram-reverseproxy
+  - docker tag reverseproxy voibenho/reverseproxy:v18
+  - docker build -t udagram-frontend ./udagram-frontend
+  - docker tag udagram-frontend voibenho/udagram-frontend:v18
+
+after_script:
+  - docker images
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push voibenho/udagram-api-feed:v18
+  - docker push voibenho/udagram-api-user:v18
+  - docker push voibenho/udagram-frontend:v18
+  - docker push voibenho/reverseproxy:v18
